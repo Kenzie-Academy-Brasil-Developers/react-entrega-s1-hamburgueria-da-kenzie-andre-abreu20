@@ -1,0 +1,106 @@
+.card {
+  list-style: none;
+  border: 2px solid #e0e0e0;
+  width: 300px;
+  height: 346px;
+  margin-left: 20px;
+}
+.card_description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 21px;
+  margin-top: 3px;
+  margin-right: 19px;
+  margin-bottom: 23px;
+}
+.card_buttons {
+  width: 106px;
+  height: 40px;
+
+  /* color-primary */
+
+  background: #27ae60;
+  /* color-primary */
+
+  border: 2px solid #27ae60;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+.card_buttons:hover {
+  /* color-primary-50 */
+
+  background: #93d7af;
+  /* color-primary-50 */
+
+  border: 2px solid #93d7af;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.card_img_div {
+  width: 300px;
+  height: 150px;
+  /* grey-0 */
+  background: #f5f5f5;
+}
+.Sanduíches {
+  width: 170px;
+  height: 170px;
+}
+.Bebidas {
+  margin-top: -85px;
+}
+.card_img_Milkshake {
+  margin-top: -22px;
+}
+.card_name {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  /* or 133% */
+
+  color: #333333;
+}
+.card_category {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  /* grey-300 */
+
+  color: #828282;
+}
+.card_price {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  /* color-primary */
+
+  color: #27ae60;
+}
+@media screen and (min-width: 1036px) {
+  .card {
+    margin-bottom: 12px;
+  }
+  .Bebidas {
+    margin-top: -39px;
+    height: 190px;
+  }
+}
