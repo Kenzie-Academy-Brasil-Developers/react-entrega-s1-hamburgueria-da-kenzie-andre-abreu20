@@ -6,8 +6,14 @@ export default function Cart({ cartList, setCartList }) {
       (previusValue, currentValue) => previusValue + Number(currentValue.price),
       0
     );
-    return <p>R${resultTotal.toFixed(2).replace(".", ".")}</p>;
+    return <p>R${resultTotal.toFixed(2).replace(".", ",")}</p>;
   }
+
+  function handleCartFiltered(product) {
+    const arrayFiltered = cartList.filter((element) => element !== product);
+    setCartList(arrayFiltered);
+  }
+
   return (
     <div className={cartList.length > 0 ? "cart_filled" : "cart_empty"}>
       <div className="cart_header">
@@ -30,10 +36,7 @@ export default function Cart({ cartList, setCartList }) {
                 <p
                   className="cart_item_remove"
                   onClick={() => {
-                    const arrayFiltred = cartList.filter(
-                      (element) => element !== product
-                    );
-                    setCartList(arrayFiltred);
+                    handleCartFiltered(product);
                   }}
                 >
                   Remover

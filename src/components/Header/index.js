@@ -7,6 +7,40 @@ export default function Header({
   productsList,
 }) {
   const [wordSearched, setWordSearched] = useState("");
+  function handleFilterProductsEvent(event) {
+    const productsFiltered = productsList.map((products) => {
+      if (
+        products.name
+          .toLowerCase()
+          .includes(event.target.value.toLowerCase()) ||
+        products.category
+          .toLowerCase()
+          .includes(event.target.value.toLowerCase())
+      ) {
+        return products;
+      }
+    });
+
+    setProductsSearched(
+      productsFiltered.filter((element) => element !== undefined)
+    );
+  }
+
+  function handleFilterProductsInput() {
+    const input = document.getElementById("inputSearch");
+    const productsFiltered = productsList.map((product) => {
+      if (
+        product.name.toLowerCase().includes(input.value.toLowerCase()) ||
+        product.category.toLowerCase().includes(input.value.toLowerCase())
+      ) {
+        return product;
+      }
+    });
+    setProductsSearched(
+      productsFiltered.filter((element) => element !== undefined)
+    );
+  }
+
   return (
     <>
       <header className="header">
@@ -26,44 +60,14 @@ export default function Header({
                 ? setListChange(false)
                 : setListChange(true);
               setWordSearched(event.target.value);
-              const productsFiltered = productsList.map((products) => {
-                if (
-                  products.name
-                    .toLowerCase()
-                    .includes(event.target.value.toLowerCase()) ||
-                  products.category
-                    .toLowerCase()
-                    .includes(event.target.value.toLowerCase())
-                ) {
-                  return products;
-                }
-              });
-
-              setProductsSearched(
-                productsFiltered.filter((element) => element !== undefined)
-              );
+              handleFilterProductsEvent(event);
             }}
           ></input>
           <button
             className="input_button"
             onClick={() => {
               setListChange(true);
-              const input = document.getElementById("inputSearch");
-              const productsFiltered = productsList.map((product) => {
-                if (
-                  product.name
-                    .toLowerCase()
-                    .includes(input.value.toLowerCase()) ||
-                  product.category
-                    .toLowerCase()
-                    .includes(input.value.toLowerCase())
-                ) {
-                  return product;
-                }
-              });
-              setProductsSearched(
-                productsFiltered.filter((element) => element !== undefined)
-              );
+              handleFilterProductsInput();
             }}
           >
             Pesquisar

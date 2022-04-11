@@ -1,10 +1,16 @@
 import "./styles.css";
 
 export default function Products({ product, setCartList, cartList }) {
-  function handleAlert() {
-    alert("Item ja adicionado ao carrinho");
+  function nullValue() {
     return false;
   }
+
+  function handleAddCartProduct() {
+    cartList.find((element) => element.id === product.id) !== undefined
+      ? nullValue()
+      : setCartList([...cartList, product]);
+  }
+
   return (
     <li className="card" key={product.id}>
       <div className="card_img_div">
@@ -27,9 +33,7 @@ export default function Products({ product, setCartList, cartList }) {
         <button
           className="card_buttons"
           onClick={() => {
-            cartList.find((element) => element.id === product.id) !== undefined
-              ? handleAlert()
-              : setCartList([...cartList, product]);
+            handleAddCartProduct();
           }}
         >
           Adicionar
