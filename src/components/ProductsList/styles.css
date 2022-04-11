@@ -8,7 +8,7 @@
   .products_list {
     flex-wrap: wrap;
     margin-left: -35px;
-    padding-right: 60px;
+    padding-right: 6vw;
     min-width: 64vw;
     max-width: 64vw;
   }
